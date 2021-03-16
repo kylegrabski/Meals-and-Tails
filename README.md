@@ -1,8 +1,19 @@
-# Random recipe with drink
+# Meals and Tails
 
+## Contributors 
+```
+Kyle Grabski - HTML/Javascript
 
-# User Story
-As I try and come up with something to eat, my mind goes blank. So I come to Meals and Tails, choose a protein, veggie and/or grain. I can then also choose a beverage to pair with my meal. A recipe will pop up with a refreshing paired beverage.
+Mark Columbus - HTML
+
+Noor Abdikadir - Styling
+
+Manny Ybarra - HTML
+
+Travis Watkins - HTML
+```
+# Take a look
+Choose a few ingredients, select the type of cocktail you would like, and click search!
 
 # Wireframe
 ![Screen Shot 2021-03-10 at 11 41 21 AM](https://user-images.githubusercontent.com/78819536/110681131-b4016580-8196-11eb-8348-3491150096b0.png)

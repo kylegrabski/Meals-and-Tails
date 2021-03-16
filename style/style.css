@@ -92,3 +92,8 @@ h6 {font-size: 18px; font-family:'Allrounder Monument W00 Book' , 'fallback-font
 .level {
     max-width: 900px;
 }
+
+.footer {
+    padding: 0px;
+    padding-top: 150px;
+}
