@@ -1,11 +1,12 @@
-const aboutUs = document.querySelector("#about-us");
-const recipes = document.querySelector("#recipes");
-const saveRecipe = document.querySelector("#saved-recipes");
-const $recipeContainer = document.querySelector("#recipe-append");
-const saveBtn = document.querySelector(".save-button");
-var $savedDrinkContainer = document.querySelector("#saved-drink-container");
-var $savedFoodContainer = document.querySelector("#saved-food-container");
-var $clearList = document.querySelector(".clearlist");
+let aboutUs = document.querySelector("#about-us");
+let recipes = document.querySelector("#recipes");
+let saveRecipe = document.querySelector("#saved-recipes");
+let $recipeContainer = document.querySelector("#recipe-append");
+let saveBtn = document.querySelector(".save-button");
+let $savedDrinkContainer = document.querySelector("#saved-drink-container");
+let $savedFoodContainer = document.querySelector("#saved-food-container");
+let $clearList = document.querySelector(".clearlist");
+let $btn = document.querySelector(".search-button");
 
 let userFoodPreference = [];
 let recipeArray = [];
@@ -14,6 +15,17 @@ let allFoodsArr = [];
 let liquorLink;
 let foodNetworkUrl;
 
+//Welcome modal
+var closeModal = document.querySelector("#modal-close-btn1");
+var modalContainer = document.querySelector(".modal");
+var btnX = document.querySelector("#modal-close-btn1");
+
+closeModal.addEventListener("click", function () {
+  modalContainer.classList.remove("is-active");
+  btnX.remove();
+});
+
+// show saved recipes on nav dropdown
 function renderSavedItems() {
   var cocktailName = document.querySelector(".drink-name");
   $savedDrinkContainer.innerHTML = "";
@@ -25,17 +37,18 @@ function renderSavedItems() {
       aTag.setAttribute("href", foodUrl);
       aTag.textContent = foodUrl;
       $savedFoodContainer.append(aTag);
-    };
-  };
+    }
+  }
   for (const drinkUrl of savedLiquorArr) {
     var aTag = document.createElement("a");
     aTag.setAttribute("href", drinkUrl);
     // aTag.textContent = cocktailName.textContent;
     aTag.textContent = drinkUrl;
     $savedDrinkContainer.append(aTag);
-  };
-};
+  }
+}
 
+// empty saved recipes when "clear" in navbar is clicked
 $clearList.addEventListener("click", function () {
   localStorage.clear();
   $savedDrinkContainer.innerHTML = "";
@@ -57,7 +70,8 @@ window.onscroll = function () {
   } else {
     myNav.classList.remove("scroll");
   }
-};
+}
+
 // ----------------FOOD PREFERENCE LOGIC------------------
 
 // collecting FOOD checkbox values
@@ -86,10 +100,6 @@ function getFoodPreference(name, name2, name3) {
 
   return userFoodPreference;
 }
-
-// *************************************************
-// THIS WILL NEED TO BE APPLIED TO OUR SEARCH BUTTON
-var $btn = document.querySelector(".search-button");
 
 $btn.addEventListener("click", (event) => {
   userFoodPreference = [];
@@ -121,7 +131,6 @@ $btn.addEventListener("click", (event) => {
 
   liquorLink = `https://www.liquor.com/search?q=${liquorString}`;
 });
-// *************************************************
 
 // -----------------FOOD RECIPE API----------------------
 
@@ -172,16 +181,6 @@ function appendRecipe(recipe) {
   recipeUrl.setAttribute("target", "_blank");
   recipeUrl.innerText = "Click here for recipes!";
 }
-
-//Welcome modal
-var closeModal = document.querySelector("#modal-close-btn1");
-var modalContainer = document.querySelector(".modal");
-var btnX = document.querySelector("#modal-close-btn1");
-
-closeModal.addEventListener("click", function () {
-  modalContainer.classList.remove("is-active");
-  btnX.remove();
-});
 
 /* Cocktail Button */
 var cocktailbtn = document.querySelector(".dropdown");
